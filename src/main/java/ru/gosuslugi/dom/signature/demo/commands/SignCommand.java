@@ -62,14 +62,9 @@ public class SignCommand implements Command {
             KeyStoreUtils.loadKeyStoreByName(keyStore, parameters.getStoreName(), storePassword);
         }
 
-        // загружаем закрытый ключ
-        KeyStore.PrivateKeyEntry keyEntry = KeyLoader.loadPrivateKey(keyStore, parameters.getAlias(), keyPassword);
-        if (keyEntry == null) {
-            throw new KeyException("Key not found: " + parameters.getAlias());
-        }
 
         // создаем провайдер для доступа к закрытому ключу
-        KeyingDataProvider kp = new DirectKeyingDataProvider((X509Certificate) keyEntry.getCertificate(), keyEntry.getPrivateKey());
+        KeyingDataProvider kp = new DirectKeyingDataProvider((X509Certificate) KeyLoader.getX509Certificate(keyStore, parameters.getAlias()), KeyLoader.getPrivateKey(keyStore, parameters.getAlias(), keyPassword));
 
         // создаем провайдер, описывающий используемые алгоритмы
         CustomizableAlgorithmProvider algorithmsProvider = new CustomizableAlgorithmProvider();
