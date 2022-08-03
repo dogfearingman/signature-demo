@@ -10,7 +10,7 @@ public class Consts {
     /**
      * Алгоритм электронной подписи
      */
-    public static final String SIGNATURE_ALGORITHM = "http://www.w3.org/2001/04/xmldsig-more#gostr34102001-gostr3411";
+    public static final String SIGNATURE_ALGORITHM = "urn:ietf:params:xml:ns:cpxmlsec:algorithms:gostr34102012-gostr34112012-256";
     /**
      * Алгоритм каноникализации для подписи
      */
@@ -22,11 +22,11 @@ public class Consts {
     /**
      * Алгоритм расчета хешей. Используется в XML-документе.
      */
-    public static final String DIGEST_ALGORITHM_URI = "http://www.w3.org/2001/04/xmldsig-more#gostr3411";
+    public static final String DIGEST_ALGORITHM_URI = "urn:ietf:params:xml:ns:cpxmlsec:algorithms:gostr34112012-256";
     /**
      * Алгоритм расчета хешей. Используется для создания экземпляра алгоритма.
      */
-    public static final String DIGEST_ALGORITHM_NAME = "GOST3411";
+    public static final String DIGEST_ALGORITHM_NAME = "GOST3411v12256";
 
     /**
      * Ссылка на блок {@code <xades:SignedSignatureProperties>}
